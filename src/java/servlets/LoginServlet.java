@@ -63,8 +63,9 @@ public class LoginServlet extends HttpServlet {
             return;
         }
         
-        AccountService as = new AccountService();
-        User user = as.login(username, password);
+        AccountService as = new AccountService(username, password);
+        User user = new User(username, password);
+        as.login(username, password);
         
         if(user != null)
         {

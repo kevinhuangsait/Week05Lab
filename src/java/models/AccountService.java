@@ -12,11 +12,6 @@ package models;
 public class AccountService {
     private String username;
     private String password;
-
-    public AccountService() {
-        username = "";
-        password = "";
-    }
     
     public AccountService(String username, String password) {
         this.username = username;
@@ -26,12 +21,12 @@ public class AccountService {
     public User login(String username, String password) {
         if(username.equals("abe") && password.equals("password"))
         {
-            User user = new User(username, null);
+            User user = new User(username, "");
             return user;
         }
         else if(username.equals("barb") && password.equals("password"))
         {
-            User user = new User(username, null);
+            User user = new User(username, "");
             return user;
         }
         else
