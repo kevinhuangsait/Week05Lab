@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,14 +28,16 @@ public class HomeServlet extends HttpServlet {
         if (username != null)
         {
             getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request,response);
-
+        }
+        else
+        {
+            response.sendRedirect("login");
         }
     }
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
     }
 
 
