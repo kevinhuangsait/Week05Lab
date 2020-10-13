@@ -5,34 +5,32 @@
  */
 package models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author 831719
  */
 public class AccountService {
-    private String username;
-    private String password;
+    private ArrayList<User> users;
     
-    public AccountService(String username, String password) {
-        this.username = username;
-        this.password = password;
+    public AccountService() {
+        users = new ArrayList<>();
+        users.add(new User("abe", "password"));
+        users.add(new User("barb", "password"));
     }
     
     public User login(String username, String password) {
-        if(username.equals("abe") && password.equals("password"))
+        User user = null;
+        
+        for (User newUser : users)
         {
-            User user = new User(username, "");
-            return user;
+            if (newUser.getUsername().equals(username) && newUser.getPassword().equals(password))
+            {
+                user = new User(username, null);
+            }
         }
-        else if(username.equals("barb") && password.equals("password"))
-        {
-            User user = new User(username, "");
-            return user;
-        }
-        else
-        {
-            return null;
-        }
+        return user;
     }
     
     
